@@ -24,12 +24,38 @@ function setGame() {
             document.getElementById("board").append(tile);
         }
     }
+    setTwo();
+    setTwo();
+}
+
+function hasEmptyTile() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            if (board[r][c] == 0) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 function setTwo() {
+    if (!hasEmptyTile()) {
+        return;
+    }
+
     let found = false;
     while (!found) {
+        let r = Math.floor(Math.random() * rows);
+        let c = Math.floor(Math.random() * columns);
 
+        if (board[r][c] == 0) {
+            board[r][c] = 2;
+            let tile = document.getElementById(r.toString() + '-' + c.toString());
+            tile.innerText = '2';
+            tile.classList.add("x2");
+            found = true;
+        }
     }
 }
 
@@ -57,6 +83,8 @@ document.addEventListener("keyup", (e) => {
     } else if (e.code == "ArrowDown") {
         slideDown();
     }
+    setTwo();
+    document.getElementById('score').innerText = score;
 })
 
 function filterZero(row) {
