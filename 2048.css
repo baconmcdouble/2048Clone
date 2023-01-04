@@ -7,6 +7,15 @@ hr {
     width: 500px;
 }
 
+button {
+    height: 50px;
+    border-radius: 5px;
+    margin: 0;
+    background-color: #cdc1b5;
+    color: white;
+    display: inline;
+}
+
 #board {
     width: 400px;
     height: 400px;
