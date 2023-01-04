@@ -17,11 +17,14 @@ function setGame() {
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
+            let wrapper = document.createElement('div');
             let tile = document.createElement('div');
+            wrapper.classList.add('wrapper');
             tile.id = r.toString() + '-' + c.toString();
+            wrapper.appendChild(tile);
             let num = board[r][c];
             updateTile(tile, num);
-            document.getElementById("board").append(tile);
+            document.getElementById("board").append(wrapper);
         }
     }
     setTwo();
